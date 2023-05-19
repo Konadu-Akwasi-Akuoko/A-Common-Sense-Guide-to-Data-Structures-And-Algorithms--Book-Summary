@@ -7,3 +7,5 @@
 Help the creator out by buying the book on [Amazon](https://www.amazon.com/Common-Sense-Guide-Structures-Algorithms-Second/dp/1680507222). Just to clarify I ain't getting any money by linking the book here.
 
 **Contributions:** Issues, comments, and pull requests are welcome
+
+
