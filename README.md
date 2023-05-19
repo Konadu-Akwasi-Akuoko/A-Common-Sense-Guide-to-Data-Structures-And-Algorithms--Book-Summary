@@ -25,11 +25,13 @@ Help the creator out by buying the book on [Amazon](https://www.amazon.com/Commo
 
 ### The Array: The Foundational Data Structure
 
-- Array is the most basic data structure in CS.
-- The size of an array is how many data elements the array holds.
-- The index of an array is the number that identifies where a piece of data lives inside the array.
+Array is the most basic data structure in CS.
 
-![An array](Assets/SVG/Chapter1_Array.svg)
+The size of an array is how many data elements the array holds.
+
+The index of an array is the number that identifies where a piece of data lives inside the array.
+
+![An array](Assets/PNG/Chapter1/Array.png)
 
 ### Data Structure Operations
 
@@ -55,3 +57,23 @@ In terms of reading from an array, it's one of the fastest operations. Because c
 Reading fro an array is a very efficeint operation. Because computers can read any index by jumpint to the memory address in **one step**.
 
 - **NB:** We can say that the worst case scenario from reading from an array is 1. Where 1 is the number of operations it takes.
+
+#### Searching
+
+Searching means providing the computer with a value, and asking it to return the index of that value's location.
+
+Searching is tedious, since the computer has no way to jump to a particular value.
+
+- **NB:** A computer has immediate access to all of it's memory addresses, but it has no idea offhand what values are contained at each memory address.
+
+**Linear Search:** it is the type of searching where the computer checks each cell one at a time to find it's target value (the value you're searching for), and the target value's index.
+
+> What is the maximum number of steps a computer would need to perform a linear search?
+
+- For N number of cells in an array, linear search would take a maximum of N steps. Where **mostly N is the size of the array**.
+- So this means that for a 500 array, in the work case scenario a linear search would tak up to 500 steps to find the index of an element you are looking for.
+- And if by chance that element is not in the array, it'll need to check every cell in the array to make sure the value you are looking for is not in the array. And that is the worst case scenario for a linear search algorithm.
+
+The following diagrams demonstrate the process the computer would use to
+search for "elderberries" within our array:
+![Linear search of an ordinary array](Assets/PNG/Chapter1/Linear_Search__Ordianry_Array.png)
