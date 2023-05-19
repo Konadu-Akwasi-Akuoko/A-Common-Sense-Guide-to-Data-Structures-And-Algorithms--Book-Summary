@@ -8,4 +8,27 @@ Help the creator out by buying the book on [Amazon](https://www.amazon.com/Commo
 
 **Contributions:** Issues, comments, and pull requests are welcome
 
+---
 
+## Table of Content
+
+1. [Why Data Structures Matter](#1-why-data-structures-matter)
+2. Why Algorithms Matter
+
+---
+
+## 1. Why Data Structures Matter
+
+- **Data:** it refers to all types of information down to the most basic numbers and strings.
+- **Data Structures:** it is how data is organized. It is the data in an array, int, set, string, etc.
+- Organization of data doesn't just matter for organization sake, but it can significantly impact how fast your code runs.
+
+### The Array: The Foundational Data Structure
+
+- Array is the most basic data structure in CS.
+- The size of an array is how many data elements the array holds.
+- The index of an array is the number that identifies where a piece of data lives inside the array.
+
+![An array](Assets/SVG/Chapter1_Array.svg)
+
+### Data Structure Operations
