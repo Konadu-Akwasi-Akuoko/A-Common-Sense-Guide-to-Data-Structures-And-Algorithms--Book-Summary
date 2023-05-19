@@ -32,3 +32,26 @@ Help the creator out by buying the book on [Amazon](https://www.amazon.com/Commo
 ![An array](Assets/SVG/Chapter1_Array.svg)
 
 ### Data Structure Operations
+
+To understand the performance of any data structure we need to analyze the common ways our code might interact with the data structure.
+
+Many data structures are used in four main ways:
+
+1. **Reading:** Looking something up at a **particular spot** within the data structure.
+2. **Searching:** Looking for a **particular value** within a data structure.
+3. **Inserting:** Adding a new value to the data structure.
+4. **Deleting:** Removing a value from the data structure
+
+### Measuring Speed
+
+When measuring the speed of a code, we measure how fast an operation takes in terms of steps it takes, not the amount of time it takes.
+
+If operation A takes 5 steps and operation B takes 500 steps to finish the same amount of taks, we say operation A is the fastest
+
+#### Reading
+
+In terms of reading from an array, it's one of the fastest operations. Because computers know how to jump to a specified index at anywhere in the array at any given time.
+
+Reading fro an array is a very efficeint operation. Because computers can read any index by jumpint to the memory address in **one step**.
+
+- **NB:** We can say that the worst case scenario from reading from an array is 1. Where 1 is the number of operations it takes.
