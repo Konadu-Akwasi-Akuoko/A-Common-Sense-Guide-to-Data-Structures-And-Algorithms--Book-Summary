@@ -8,6 +8,8 @@ Help the creator out by buying the book on [Amazon](https://www.amazon.com/Commo
 
 **Contributions:** Issues, comments, and pull requests are welcome
 
+This version here uses TypeScript. To go over to the Python version go [here](/Python/README.md).
+
 ---
 
 ## Table of Content
@@ -76,4 +78,7 @@ Searching is tedious, since the computer has no way to jump to a particular valu
 
 The following diagrams demonstrate the process the computer would use to
 search for "elderberries" within our array:
+
 ![Linear search of an ordinary array](Assets/PNG/Chapter1/Linear_Search__Ordianry_Array.png)
+
+**NB:** Searching is less efficient than reading. Since reading takes one step, and searching can take N steps (where N is the size of the array).
