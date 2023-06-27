@@ -82,3 +82,21 @@ search for "elderberries" within our array:
 ![Linear search of an ordinary array](Assets/PNG/Chapter1/Linear_Search__Ordianry_Array.png)
 
 **NB:** Searching is less efficient than reading. Since reading takes one step, and searching can take N steps (where N is the size of the array).
+
+### Insertion
+
+The efficiency of inserting a new piece of data into an array depends on where within the array you're inserting.
+
+Insetting the value at the end of an array is the best time, and inserting it at they beginning is the worst time.
+
+**Why?** As we've seen computers always know the size of an array, and the index which it begins. So inserting a value at the last place is just adding to the size of the array.
+
+If the array begins at memory address 1010 and is of size 5, that means its final memory address is 1014. So, to insert an item beyond that would mean adding it to the next memory address, which is 1015. Once the computer calculates which memory address to insert the new value into, it can do so in one step.
+
+But with insertion at the beginning or in the middle of an array is where the inefficiency lies. If you want to insert a new element at the beginning of an array all the elements must shift one side to the right for the array to have space to insert the new element.
+
+*[Picture of Inserting at the beginning of an array]*
+
+This means that some of the values were shifted to the right to make room for the `figs`.
+
+The worst case scenario for insertion into an array is when we insert data at the beginning of the array. This is because when inserting at the beginning of the array, we have to move all the other values one cell to the right. So we can say that the worst case scenario is **`N+1`** for an array containing `N` elements.
