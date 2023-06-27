@@ -15,7 +15,7 @@ This version here uses TypeScript. To go over to the Python version go [here](/P
 ## Table of Content
 
 1. [Why Data Structures Matter](#1-why-data-structures-matter)
-2. Why Algorithms Matter
+2. [Why Algorithms Matter](#2-why-algorithms-matter)
 
 ---
 
@@ -100,3 +100,27 @@ But with insertion at the beginning or in the middle of an array is where the in
 This means that some of the values were shifted to the right to make room for the `figs`.
 
 The worst case scenario for insertion into an array is when we insert data at the beginning of the array. This is because when inserting at the beginning of the array, we have to move all the other values one cell to the right. So we can say that the worst case scenario is **`N+1`** for an array containing `N` elements.
+
+### Deletion
+
+Deletion from an array is the process of elimination the value at a particular index.
+
+Like insertion, the worst case scenario of deleting an element is deleting the very first element of the array, because now we would need to shift all values to the next left cell.
+
+But we can say that, for an an array containing `N` elements the maximum number of steps a deletion take is **`N`** steps.
+
+### Sets
+
+A set is another data structure just like an array but it does not allow you to duplicate data.
+
+Reading, searching, and deletion operations on sets is the same as it is on arrays.
+
+But insertion is where it works differently. When inserting into a set, the set would need to do a search first (which is N, where N is the size of the array). Only is the set does not yet contain our new value is when the set would insert it.
+
+So for the worst case scenario, it is inserting a value at the beginning of a set. The set would search it's values (N) then if the value is not found in the array, it would shift all array values to the immediate right cell (which is also N, thus it takes N steps, where N is the size of the array). After the shift has been done, it inserts the value at the beginning of the set (which also takes 1 operation). Thus we can say that the worst time of inserting into a set is **`1+2N`**. Where `2N = 1st N (Searching the array) + 2nd N (Shifting all values to the immediate right cell)`.
+
+### Wrapping Up
+
+Analyzing the number of steps an operation takes is the heart of understanding the performance of data structures.
+
+## 2. Why Algorithms Matter
