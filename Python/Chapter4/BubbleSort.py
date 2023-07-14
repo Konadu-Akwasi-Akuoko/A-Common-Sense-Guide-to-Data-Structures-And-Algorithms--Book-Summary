@@ -21,9 +21,11 @@ def bubble_sort(list):
                 list[i], list[i + 1] = list[i + 1], list[i]
                 # And we turn sorted to false, so that we can perform another pass through the array.
                 sorted = False
-                # And we decrease the unsortedUntilIndex by 1 at the end of each passthrough,
-            #  so that we don't have to sort the already sorted elements again.
-            unsorted_until_index -= 1
+        # And we decrease the unsortedUntilIndex by 1 at the end of each passthrough,
+        #  so that we don't have to sort the already sorted elements again.
+        unsorted_until_index -= 1
     # After we are done with a  thorough and continuous passthrough we return the sorted array
-
     return list
+
+
+print(bubble_sort([5, 3, 8, 6, 7, 2]))
