@@ -59,3 +59,5 @@ console.log(
   "\nUse binary search to search for the value of 202 withing this array => [3, 17, 75, 80, 202]"
 );
 console.log(BinarySearch([3, 17, 75, 80, 202], 202));
+
+

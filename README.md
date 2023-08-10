@@ -16,6 +16,8 @@ This version here uses TypeScript. To go over to the Python version go [here](/P
 
 1. [Why Data Structures Matter](#1-why-data-structures-matter)
 2. [Why Algorithms Matter](#2-why-algorithms-matter)
+3. [Chapter 3](#3-chapter-3)
+4. [Chapter 4](#4-chapter-4)
 
 ---
 
@@ -124,3 +126,58 @@ So for the worst case scenario, it is inserting a value at the beginning of a se
 Analyzing the number of steps an operation takes is the heart of understanding the performance of data structures.
 
 ## 2. Why Algorithms Matter
+
+### I'll fill in the blanks here
+
+## 3. Chapter 3
+
+## 4. Chapter 4
+
+### A Linear Solution
+
+Let's talk about a clever method to find duplicate numbers in a list of numbers without relying on nested loops. Imagine you have a list like `[3, 5, 8]`, and you want to check if there are any duplicate numbers in it. This solution is linear, thus `O(N)`.
+
+```javascript
+function hasDuplicateValue(array) {
+  let steps = 0;
+  let existingNumbers = [];
+  for (let i = 0; i < array.length; i++) {
+    steps++;
+    if (existingNumbers[array[i]] === 1) {
+      return true;
+    } else {
+      existingNumbers[array[i]] = 1;
+    }
+  }
+  console.log(steps);
+  return false;
+}
+```
+
+- If we run hasDuplicateValue([1, 4, 5, 2, 9]) now, we’ll see that the output in the
+JavaScript console is 5, which is the same as the size of our array. We’d find
+this to be true across arrays of all sizes. This algorithm, then, is O(N).
+
+#### How It Works
+
+1. First, you create an empty list called `existingNumbers`.
+2. Then, you loop through each number in your original list (array) one by one.
+3. As you go through the numbers, you place a special marker (we'll use the number 1) in the `existingNumbers` list at the position that corresponds to the number you're examining.
+
+For example:
+
+- When you encounter the number 3, you put a 1 at position 3 in `existingNumbers`. It looks like this: `[undefined, undefined, undefined, 1]`.
+- When you encounter the number 5, you put a 1 at position 5 in `existingNumbers`. It becomes: `[undefined, undefined, undefined, 1, undefined, 1]`.
+- Finally, when you check the number 8, you put a 1 at position 8 in `existingNumbers`. It ends up like this: `[undefined, undefined, undefined, 1, undefined, 1, undefined, undefined, 1]`.
+
+#### The Trick
+
+Before placing a 1 in the `existingNumbers` list, you check if there's already a 1 at that position. If there is, it means you've already encountered that number before, and that's a duplicate! You then stop and say, "Hey, I found a duplicate!" If you finish checking all the numbers without finding any duplicates, you conclude, "Nope, no duplicates here."
+
+#### Efficiency
+
+This method is clever because it only needs to loop through the numbers once. The number of steps it takes is roughly the same as the number of numbers you have. For instance, if you have 5 numbers, it takes about 5 steps. We call this "linear time" or O(N) efficiency. It's an efficient way to find duplicates in a list!
+
+### Wrapping Up
+
+A strong grasp of Big O Notation helps you recognize sluggish code and choose faster algorithms among options. Yet, there are cases where Big O Notation wrongly suggests two algorithms are equally fast when one is truly quicker. In the upcoming chapter, you'll discover how to assess algorithm efficiencies, even when Big O falls short in providing nuanced insights.
