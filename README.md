@@ -17,7 +17,8 @@ This version here uses TypeScript. To go over to the Python version go [here](/P
 1. [Why Data Structures Matter](#1-why-data-structures-matter)
 2. [Why Algorithms Matter](#2-why-algorithms-matter)
 3. [Chapter 3](#3-chapter-3)
-4. [Chapter 4](#4-chapter-4)
+4. [Speeding Up Your Code With Big O](#4-speeding-up-your-code-with-big-o)
+5. [Optimizing Code With or Without Big O](#5-optimizing-code-with-or-without-big-o)
 
 ---
 
@@ -133,7 +134,7 @@ Analyzing the number of steps an operation takes is the heart of understanding t
 
 ### I'll fill in the blanks here 2
 
-## 4. Chapter 4
+## 4. Speeding Up Your Code with Big O
 
 ### I'll fill in the blanks here 3
 
@@ -185,3 +186,5 @@ This method is clever because it only needs to loop through the numbers once. Th
 ### Wrapping Up
 
 A strong grasp of Big O Notation helps you recognize sluggish code and choose faster algorithms among options. Yet, there are cases where Big O Notation wrongly suggests two algorithms are equally fast when one is truly quicker. In the upcoming chapter, you'll discover how to assess algorithm efficiencies, even when Big O falls short in providing nuanced insights.
+
+## 5. Optimizing Code With or Without Big O
