@@ -2,13 +2,11 @@
 def hasDuplicateValueLinear(array):
     # Declare a variable named steps and initialize it to 0
     steps = 0
-    # Declare a list named existingNumbers and initialize it to the length of the array
+    # Declare a list named existingNumbers and initialize it with a length of the maximum number in the array + 1
     existingNumbers = [0] * (max(array) + 1)
-    print("Length existingNumb: " + str(len(existingNumbers)))
     # Use a for loop to iterate over the elements of the array parameter
     for i in range(len(array)):
         # Increment the steps variable by 1 for each iteration
-        print(i)
         steps += 1
         print(i)
         # Check if the element at index i of the array parameter is already in the existingNumbers list
