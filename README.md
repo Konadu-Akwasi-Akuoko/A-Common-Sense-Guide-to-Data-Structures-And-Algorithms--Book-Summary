@@ -131,7 +131,11 @@ Analyzing the number of steps an operation takes is the heart of understanding t
 
 ## 3. Chapter 3
 
+### I'll fill in the blanks here 2
+
 ## 4. Chapter 4
+
+### I'll fill in the blanks here 3
 
 ### A Linear Solution
 
