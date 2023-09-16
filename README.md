@@ -191,12 +191,33 @@ A strong grasp of Big O Notation helps you recognize sluggish code and choose fa
 
 Big O Notation is a useful tool for comparing algorithms and choosing the best one for a situation. However, sometimes two algorithms may have the same Big O, but one is faster than the other.
 
+## 5. Optimizing Code With or Without Big O
+
+Big O Notation is a useful tool for comparing algorithms and choosing the best one for a situation. However, sometimes two algorithms may have the same Big O, but one is faster than the other.
+
 ### Selection Sort
 
 Selection Sort is a sorting algorithm that works by finding the smallest value in an array and swapping it with the first element, then repeating the process for the remaining elements until the array is sorted. This is the steps to perform a selection sort algorithm:
 
   1. Iterate through the array from left to right, and identify the smallest value encountered in the array, store the smallest value's index in a variable. If we find a value smaller than the one indexed, we update the index to the new lowest value.
-  !["Selection sort in action"](/Assets//PNG//Chapter5/selection_sort_pic1.png)
+  !["Selection sort in action"](/Assets/PNG/Chapter5/selection_sort_pic1.png)
   2. After identifying the index with the lowest value, we exchange that value with the value at the starting index of the current pass. For instance, in the first pass-through we started at index 0, this involves swapping the lowest value with the value at index 0. in the second pass through we will start at index 1, so the smallest value would be swapped with the value at index 1, and in the third pass through we will start at index 2, it would be swapped with the value at index 2. Essentially, in each pass-through, the smallest value found is moved to the corresponding position based on the pass number.
-  ![Alt text](/Assets/PNG/Chapter5//selection_sort_pic2.png)
+  ![Alt text](/Assets/PNG/Chapter5/selection_sort_pic2.png)
   3. Repeat step 1 and step 2 until we reach a pass-through that would start at the end of the array. By then the array would have been fully sorted.
+
+### Selection Sort in Action
+
+A walk through of the steps of Selection Sort using this example array: `[4, 2,
+7, 1, 3]`.
+
+#### First passthrough
+
+We begin by inspecting the value at index 0, which, being the only value encountered so far, is considered the lowest so we store its index in a variable.
+
+![Selection sort in action](/Assets/PNG/Chapter5/selection_sort_in_action_pic1.png)
+
+1. We compare the 2 with the lowest value so far (which happens to be 4), now 2 is less than 4. So the lowest value is now 2, we then store its value 2 and its index value 1:
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic2.png)
+
+2. We compare the next value 7 with the lowest value 2. 7 is greater than 2, so 2 stays our lowest value:
+![Alt text](image.png)
