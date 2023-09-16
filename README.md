@@ -216,8 +216,34 @@ We begin by inspecting the value at index 0, which, being the only value encount
 
 ![Selection sort in action](/Assets/PNG/Chapter5/selection_sort_in_action_pic1.png)
 
-1. We compare the 2 with the lowest value so far (which happens to be 4), now 2 is less than 4. So the lowest value is now 2, we then store its value 2 and its index value 1:
+- **Step 1:** We compare the 2 with the lowest value so far (which happens to be 4), now 2 is less than 4. So the lowest value is now 2, we then store its value 2 and its index value 1:
+
 ![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic2.png)
 
-2. We compare the next value 7 with the lowest value 2. 7 is greater than 2, so 2 stays our lowest value:
-![Alt text](image.png)
+- **Step 2:**  We compare the next value 7 with the lowest value 2. 7 is greater than 2, so 2 stays our lowest value:
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic3.png)
+
+- **Step 3:** We compare 1 with the lowest value so far which is 2. Because 1 is less than 2, now 1 becomes our lowest value and the stored index changes from 1 to 3 which is the index of the value 1:
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic4.png)
+
+- **Step 4:** We compare 3 to the lowest value, which is now 1. But because it's bigger than 1 the lowest value still stays 1. From this point we can safely say that the lowest value in the first passthrough is 1, with an index of 3:
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic5.png)
+
+- **Step 5:** Because 1 is the lowest value, we swap it with whatever value is at
+index 0—the index we began this pass-through with:
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic6.png)
+
+Now the lowest value is now in it's correct spot `[1,2,7,4,3]`.
+Now we are ready to begin our second passthrough
+
+#### Second passthrough
+
+We've already sorted the cell at index 0, so this passthrough will begin at index 1. And at the start this will be our lowest value in this second passthrough, so we will store this lower value which is 2, with it's index which is 1.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic7.png)
+
+- **Step 6:**
