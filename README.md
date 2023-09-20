@@ -246,4 +246,12 @@ We've already sorted the cell at index 0, so this passthrough will begin at inde
 
 ![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic7.png)
 
-- **Step 6:**
+- **Step 6:** Move to the next number, which is 7. We compare 7 and the lowest stored value, which is 2, but 7 is greater than 7 so we maintain 2 as or stored lowest value.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic8.png)
+
+- **Step 7:** Move to the next number. Now compare 4 to 2, 4 is bigger than two, so 2 stays our lowest number.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic9.png)
+
+
