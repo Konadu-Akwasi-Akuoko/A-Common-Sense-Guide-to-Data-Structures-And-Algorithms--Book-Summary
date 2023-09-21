@@ -254,4 +254,14 @@ We've already sorted the cell at index 0, so this passthrough will begin at inde
 
 ![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic9.png)
 
+- **Step 8:** Move to the next number, which is 3, now compare it to the lowest number, 2. Still 2 is our lowest value.
 
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic10.png)
+
+We’ve reached the end of the array. Since the lowest value from this pass-through was already in its correct spot, we don’t need to perform a swap.
+
+#### Third passthrough
+
+We've already sorted the cell at index 0 and index 1, so this passthrough will begin at index 2. And at the start this will be our lowest value in this second passthrough, so we will store this lower value which is 7, with it's index which is 2.
+
+- **Step 9:**
