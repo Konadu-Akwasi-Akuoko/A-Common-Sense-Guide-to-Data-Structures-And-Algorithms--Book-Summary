@@ -412,3 +412,33 @@ All the types of Big O we’ve encountered, whether it’s O(1), O(log N), O(N),
 that are widely different from each other. Multiplying or dividing the number of steps by a regular number doesn’t make them change to another category.
 However, when two algorithms fall under the same classification of Big O, it doesn’t necessarily mean that both algorithms have the same speed. After all, Bubble Sort is twice as slow as Selection Sort even though both are O(N<sup>2</sup>). So, while Big O is perfect for contrasting algorithms that fall under different classifications of Big O, when two algorithms fall under the same classification, further analysis is required to determine which algorithm is faster.
 
+### A Practical Example
+
+Now let's take a look at two identical functions and see why it is important to do further analysis even when 2 algorithms have the same Big O notation.
+
+```TypeScript
+function printNumbersVersionOne(upperLimit: number): void {
+  let number: number = 2;
+  while (number <= upperLimit) {
+    if (number % 2 === 0) {
+      console.log(number);
+    }
+    // Increase number by 1
+    number += 1;
+  }
+}
+
+function printNumbersVersionTwo(upperLimit: number): void {
+  let number: number = 2;
+  while (number <= upperLimit) {
+    console.log(number);
+    // Increase number by 2
+    number += 2;
+  }
+}
+
+```
+
+From the above code we can see that both of these functions are printing all even numbers from 2 to the `upperLimit` number say 100. From the code it is clear that the second version is twice as fast than the first version, this is because the second version does not need to add 1 to each number and do a comparison to check if a number is even or odd. Now let's see how these algorithms are expressed in Big O.
+
+So let's start by asking our selves: "If there are N elements how many steps will the algorithm take?" The first version takes about N steps, where N is the upper limit, thus having a time complexity of O(N). The second version is more efficient, taking only N/2 steps, but in Big O Notation, constants are dropped, so its time complexity is also O(N). Despite both algorithms having the same Big O Notation, the second version is twice as fast as the first, demonstrating that further analysis beyond Big O Notation is necessary to determine the speed of an algorithm.
