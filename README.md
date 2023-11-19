@@ -191,10 +191,6 @@ A strong grasp of Big O Notation helps you recognize sluggish code and choose fa
 
 Big O Notation is a useful tool for comparing algorithms and choosing the best one for a situation. However, sometimes two algorithms may have the same Big O, but one is faster than the other.
 
-## 5. Optimizing Code With or Without Big O
-
-Big O Notation is a useful tool for comparing algorithms and choosing the best one for a situation. However, sometimes two algorithms may have the same Big O, but one is faster than the other.
-
 ### Selection Sort
 
 Selection Sort is a sorting algorithm that works by finding the smallest value in an array and swapping it with the first element, then repeating the process for the remaining elements until the array is sorted. This is the steps to perform a selection sort algorithm:
@@ -264,4 +260,113 @@ We’ve reached the end of the array. Since the lowest value from this pass-thro
 
 We've already sorted the cell at index 0 and index 1, so this passthrough will begin at index 2. And at the start this will be our lowest value in this second passthrough, so we will store this lower value which is 7, with it's index which is 2.
 
-- **Step 9:**
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic11.png)
+
+- **Step 9:** We compare 4 with 7, and since 4 is our new lowest value we store it's index and the value.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic12.png)
+
+- **Step 10:** We move on to the next value 3 which is lower than 4, so we store the value and it's index.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic13.png)
+
+- **Step 11:** At the end of the array we will now swap the lowest value which happens to be 3 with the number we started our pass through with, which happens to be index 7.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic14.png)
+
+From here we can see that the array has been correctly sorted, but the computer doesn't know that so we must begin the fourth pass through.
+
+#### Fourth passthrough
+
+We start the fourth passthrough with index 3, and the lowest value so far is 4.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic15.png)
+
+- **Step 12:** We then compare 7 with 4, and since 4 remains the lowest value, no action is taken.
+
+At the end of this array the lowest value was 4 and it's already at the position where we started this passthrough so no need for a swap. Now because all the cells besides the last one are correctly sorted, that must mean the last cell is also in the correct order, and our entire array is properly sorted.
+
+![Alt text](/Assets/PNG/Chapter5/selection_sort_in_action_pic16.png)
+
+### Code Implementation: Selection Sort
+
+```TypeScript
+function selectionSort(array: number[]) {
+  for (let i = 0; i < array.length - 1; i++) {
+    let lowestNumberIndex = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[lowestNumberIndex]) {
+        lowestNumberIndex = j;
+      }
+    }
+    if (lowestNumberIndex != i) {
+      let temp = array[i];
+      array[i] = array[lowestNumberIndex];
+      array[lowestNumberIndex] = temp;
+    }
+  }
+  return array;
+}
+
+```
+
+Let’s break this down line by line (cd into this file to better understand this concept: `TypeScript/Chapter5/SelectionSort.ts`):
+
+We begin a loop that represents each pass-through. It uses the variable `i` to point to each value of the array, and goes up through the second-to-last value: `for(let i = 0; i < array.length - 1; i++) {`
+
+It doesn’t need to run for the last value itself, since the array will be fully sorted by that point.
+
+Next, we begin keeping track of the index containing the lowest value we encounter so far: `let lowestNumberIndex = i;`
+
+This lowestNumberIndex will be `0` at the beginning of the first pass-through, `1` at the beginning of the second, and so on.
+
+The reason we specifically keep track of the index is because we’ll need access to both the lowest value and its index in the rest of our code, and we can use the index to reference both. (We can check the lowest value by calling `array[lowestNumberIndex]`).
+
+Within each pass-through, we check the remaining values of the array to see if there might be a lower value than the current lowest value: `for(let j = i + 1; j < array.length; j++) {`
+
+Indeed, if we find a lower value, we store this new value’s index in lowestNumber Index: `if(array[j] < array[lowestNumberIndex]) { lowestNumberIndex = j; }`
+
+By the end of the inner loop, we’ll have found the index of the lowest number from this pass-through.
+
+If the lowest value from this pass-through is already in its correct place (which would happen when the lowest value is the first value we encounter in the passthrough), we don’t need to do anything.
+
+But if the lowest value is not in its correct place, we need to perform a swap. Specifically, we swap the lowest value with the value at `i`, which was the index we started the pass-through with:
+
+```TypeScript
+if(lowestNumberIndex != i) {
+let temp = array[i];
+array[i] = array[lowestNumberIndex];
+array[lowestNumberIndex] = temp;
+}
+```
+
+Finally, we return the sorted array: `return array;`
+
+### The efficiency of selection sort
+
+A selection sort algorithm contains 2 steps, that is comparisons and swaps.
+
+Looking back at our example which had 5 elements we had to make 10 comparisons:
+
+|Pass through number     |Number of comparisons     |
+|------------------------|--------------------------|
+| 1                      | 4 comparisons            |
+| 2                      | 3 comparisons            |
+| 3                      | 2 comparisons            |
+| 4                      | 1 comparison             |
+
+By addition we get a total of 10 comparisons for the 5 element array.
+
+So to put it in terms of `N`, where `N` is the number of elements in an array we can say that for an element with `N` arrays we make `(N-1) + (N-2) + (N-3) ... + 1` comparisons. And if we substitute our 5 elements array into this equation we would get: `(5-1) + (5-2) + (5-3) + 1 = 10` comparisons.
+
+And for the swap, we only make one swap per each passthrough. This is because we will either encounter a value which is lower than what  we started the passthrough with and swap it at the end of the passthrough or we won't encounter any value which will be lower than the value we started the passthrough with. So in the worst case scenario let's say we make a swap for each comparison or passthrough that we make, that means for a 5 element array we make 4 swaps. To represent it in terms of `N`, that will be `N-1`. So based on this we can say that in a worst case scenario (an array in descending oder) the total number of steps for a selection sort algorithm with 5 elements is `10 comparisons + 4 swaps = 14 steps`.
+
+Contrast this with a bubble sort algorithm where in a worst case scenario (an array in descending oder), we will have to make a swap each and every comparison. Here is a side by side comparison of bubble sort and selection sort algorithm:
+
+|N Elements     |Max # of Steps in Bubble Sort Algorithm      |Max # of Steps in Selection Sort Algorithm     |
+|---------------|---------------------------------------------|-----------------------------------------------|
+| 5             | 20                                          | 14 (10 comparisons 4 swaps)                   |
+| 10            | 90                                          | 54 (45 comparisons 9 swaps)                   |
+| 20            | 380                                         | 199 (180 comparisons 19 swaps)                |
+| 40            | 1560                                        | 819 (780 comparisons 39 swaps)                |
+| 80            | 6320                                        | 3239 (3160 comparisons 79 swaps)              |
