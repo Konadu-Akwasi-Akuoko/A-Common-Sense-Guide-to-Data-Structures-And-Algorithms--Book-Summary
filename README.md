@@ -370,3 +370,45 @@ Contrast this with a bubble sort algorithm where in a worst case scenario (an ar
 | 20            | 380                                         | 199 (180 comparisons 19 swaps)                |
 | 40            | 1560                                        | 819 (780 comparisons 39 swaps)                |
 | 80            | 6320                                        | 3239 (3160 comparisons 79 swaps)              |
+
+From this comparison, we see that selection sort takes about half the time it takes to complete a sort using bubble sort algorithm.
+
+### Ignoring Constants
+
+Although selection sort seems twice as fast than bubble sort, but in Big O notation they are *described in the same way*, thus O(N<sup>2</sup>). Why?
+
+Remember Big O answers this key question: **if there are N elements hwo many steps will the algorithm take?** Bubble sort takes roughly half of N<sup>2</sup> steps, so maybe we can say that the actual steps it takes is (N<sup>2</sup>/2) right? Thus for 5 elements we have approximately `(5^2/2) = 12.5` steps, which is not so far off from 14 rather than 25 (N<sup>2</sup>) right?
+
+Well in Big O notation a selection sort algorithm is described as O(N<sup>2</sup>). Why?
+
+Because **Big O notation ignores constants**, thus Big O does not include regular/whole numbers which are not exponents. These numbers are simply dropped from the expression.
+
+Big O Notation expresses the upper bound of an algorithm’s time complexity, focusing on its behavior as the input size grows. It simplifies the expression of complexity by dropping constants and lower order terms. For example, an algorithm taking N/2 steps is expressed as O(N), disregarding the division by 2. Similarly, an algorithm taking N<sup>2</sup> + 10 steps is expressed as O(N<sup>2</sup>), ignoring the constant 10.
+
+This simplification can lead to scenarios where two algorithms have the same Big O Notation but different actual performance. For instance, both Selection Sort and Bubble Sort are O(N<sup>2</sup>) algorithms, but Selection Sort is typically twice as fast as Bubble Sort. Despite this, both are still classified under O(N<sup>2</sup>) in Big O Notation. This highlights that while Big O Notation provides a high-level understanding of algorithmic efficiency, it may not reflect the exact performance difference between algorithms.
+
+### Big O categories
+
+This leads us to the next concept: **Big O Notation only concerns
+itself with general categories of algorithm speeds.**
+
+Let's use physical buildings as an analogy here. There are, of course, many different types of buildings. There are one-floor single-family homes, and two-floor single-family homes, and three-floor single-family homes. There are high-rise apartment buildings with varying numbers of floors. And there are skyscrapers with various heights and shapes. If we were to compare two buildings, one of which is a single-family home
+and one of which is a skyscraper, it becomes almost moot to mention how
+many floors each one has. Because the two buildings are so incredibly different in their sizes and functions, we don’t need to say, “This one is a two-story home, while the other is a one-hundred-floor skyscraper.” We may as well just call one a house and the other a skyscraper. Calling them by their general categories is enough to signify their vast differences.
+
+The same applies to algorithm efficiencies. If we compare, say, an O(N) algorithm with an O(N<sup>2</sup>) algorithm, the two efficiencies are so different that it doesn’t really matter whether the O(N) algorithm is actually O(2N), or O(N / 2) or even O(100N).
+
+Big O Notation doesn’t care merely about the number of steps an algorithm takes. It cares about the long-term trajectory of the algorithm’s steps as the data increases. O(N) tells a story of straight growth that the steps increase in a straight line according to some proportion of the data. This is true even when the steps are 100N. O(N<sup>2</sup>) tells a different story, one of exponential growth.
+
+Exponential growth is a completely different category compared to any form of O(N). This point is really driven home when we consider that O(N<sup>2</sup>) will, at some point in data growth, become slower than O(N) multiplied by any factor.
+
+The following graph draws might drive home the point
+
+![Alt text](/Assets/PNG/Chapter5/Graph.png)
+
+Therefore, when comparing two efficiencies that belong to two different categories of Big O, it’s enough to identify them by their general category. Talking about O(2N) when compared to O(N2) is like talking about a two-story house compared to a skyscraper. We may as well just say that O(2N) is part of the general category of O(N).
+
+All the types of Big O we’ve encountered, whether it’s O(1), O(log N), O(N), O(N<sup>2</sup>), are general categories of Big O
+that are widely different from each other. Multiplying or dividing the number of steps by a regular number doesn’t make them change to another category.
+However, when two algorithms fall under the same classification of Big O, it doesn’t necessarily mean that both algorithms have the same speed. After all, Bubble Sort is twice as slow as Selection Sort even though both are O(N<sup>2</sup>). So, while Big O is perfect for contrasting algorithms that fall under different classifications of Big O, when two algorithms fall under the same classification, further analysis is required to determine which algorithm is faster.
+
