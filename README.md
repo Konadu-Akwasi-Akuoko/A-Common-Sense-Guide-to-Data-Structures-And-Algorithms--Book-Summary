@@ -442,3 +442,21 @@ function printNumbersVersionTwo(upperLimit: number): void {
 From the above code we can see that both of these functions are printing all even numbers from 2 to the `upperLimit` number say 100. From the code it is clear that the second version is twice as fast than the first version, this is because the second version does not need to add 1 to each number and do a comparison to check if a number is even or odd. Now let's see how these algorithms are expressed in Big O.
 
 So let's start by asking our selves: "If there are N elements how many steps will the algorithm take?" The first version takes about N steps, where N is the upper limit, thus having a time complexity of O(N). The second version is more efficient, taking only N/2 steps, but in Big O Notation, constants are dropped, so its time complexity is also O(N). Despite both algorithms having the same Big O Notation, the second version is twice as fast as the first, demonstrating that further analysis beyond Big O Notation is necessary to determine the speed of an algorithm.
+
+### Significant Steps
+
+Let's go back to the function `printNumbersVersionOne` again, we said it takes N steps because the loop runs N times, where N is the `upperLimit`.
+
+But is that all the steps that the function takes?
+
+No, if we break things down we will see that there is comparisons going on, there is logging to the console going on, and even increments going on. But these steps are not important to us, why?
+
+Although all steps are important but in Big O we would always drop the constants to simplify the expression.
+
+Let’s apply this here. If we count all the steps, we have N comparisons, N incrementing, and N / 2 printings. This adds up to 2.5N steps. However, because we eliminate the constant of 2.5, we express this as O(N). So, which step was significant? They all were, but by dropping the constant, we effectively focus more on the number of times the loop runs, rather than the exact details of what happens within the loop.
+
+### Wrapping Up
+
+In this chapter we learnt that we can use Big O to roughly determine the efficiency of an algorithm. We also learnt that when 2 or more algorithms falls within the same Big O expression, we can do further analysis to find out what can be the best algorithm among them.
+
+
