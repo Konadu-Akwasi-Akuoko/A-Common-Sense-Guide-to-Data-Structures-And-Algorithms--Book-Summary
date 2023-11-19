@@ -459,4 +459,37 @@ Let’s apply this here. If we count all the steps, we have N comparisons, N inc
 
 In this chapter we learnt that we can use Big O to roughly determine the efficiency of an algorithm. We also learnt that when 2 or more algorithms falls within the same Big O expression, we can do further analysis to find out what can be the best algorithm among them.
 
+## 6. Optimizing For Optimistic Scenarios
 
+From all what we have done to this point we are always thinking of the worst case scenario. But sometimes knowing how to optimize for all scenarios can help you choose the appropriate algorithm for every
+situation.
+
+### Insertion Sort
+
+We've learn't about bubble sort algorithm, and selection sort algorithm which both have a Big O notation of O(N<sup>2</sup>). Now let's learn about selection sort that will show you why it's important to analyze an algorithm beyond the worst case scenario.
+
+Here are the steps of how an insertion sort alogrithm works:
+
+- In the first pass-through, we temporarily remove the value at index 1 (the second cell) and store it in a temporary variable. This will leave a gap at that index, since it contains no value:
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_1.png)
+
+In subsequent pass-through, we remove the values at the subsequent indexes just as we did for the index 1.
+
+- We then begin a shifting phase, where we take each value to the left of the gap and compare it to the value in the temporary variable:
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_2.png)
+
+If the value to the left of the gap is greater than the temporary variable, we shift that value to the right:
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_3.png)
+
+As we shift values to the right, inherently the gap moves leftward. As soon as we encounter a value that is lower than the temporarily removed value, or we reach the left end of the array, this shifting phase is over.
+
+- We then insert the temporarily removed value into the current gap:
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_4.png)
+
+- Steps 1 through 3 represent a single pass-through. We repeat these pass-troughs until the pass-through begins at the final index of the array. By then, the array will have been fully sorted.
+
+### Insertion Sort in Action
