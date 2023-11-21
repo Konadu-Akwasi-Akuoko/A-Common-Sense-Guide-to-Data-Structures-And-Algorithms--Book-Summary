@@ -696,3 +696,35 @@ return array;
 ```
 
 ### The Efficiency of Insertion Sort
+
+In an insertion sort algorithm there are four types of steps that occur, thus removals, comparisons, shifts, and insertions. In oder to understand the efficiency of an insertion sort algorithm we need to tally all of these steps.
+
+Let's start with comparisons. A comparison takes place each time we compare a value to the left of the gap with the `tempValue`. In a worst case scenario where the array is in reverse oder we need to compare each value when doing a passthrough with the `tempValue`. This is because in a reverse array every value to the left of `tempValue` will always be greater than the `tempValue` and a passthrough will only end when the gap reaches the left end of the array.
+
+In a reverse array when we start the pass through at index 1 we make one comparison to the left of the `tempValue`, since there is only one value to the left of the `tempValue` when doing the first passthrough. In the second passthrough a maximum number of 2 comparisons is made, because all the values to the left of index 2 which will be our `tempValue` will be greater than our `tempValue`. In the last passthrough we need to compare the `tempValue` with every single value in the array besides the `tempValue` itself, because in a reverse oder array every value to the left of the last element will be greater than the value of the last element. From this we can say that in every last passthrough of a reverse oder array we make `(N - 1)` comparisons, so for a reverse oder array of 5 elements in the last passthrough we will make 4 comparisons.
+
+From the above we can formulate the total number of comparisons made for a reverse oder array, and that is `1 + 2 + 3 + ... (N - 1)` comparisons. In our example array that contains 5 elements we can have `(5 - 4) + (5 - 3) + (5 - 2) + (5 -1)` which will be `1 + 2 + 3 + 4 = 10` comparisons.
+
+In a reverse oder array of 10 elements, there would be `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45` comparisons. And for a reverse oder array of 20 elements, there would be a total number of 190 comparisons, and so on.
+
+By examining this pattern we can see that approximately there are N<sup>2</sup> / 2 comparisons to be made in a worst case scenario(10<sup>2</sup> / 2 is 50, and 20<sup>2</sup> / 2 is 200 which we also got  45 and 160 comparisons respectively).
+
+Now let's analyze the steps in shifting. In a reverse array shifting occurs every time we make a comparison, thus N<sup>2</sup> / 2.
+
+Now when we add up comparisons and shifts for a worst case scenario we get N<sup>2</sup> / 2 + N<sup>2</sup> / 2 we will get N<sup>2</sup> steps (no pun intended but half plus half is one).
+
+In a worst case scenario of an array, insertion and removal always happens for every passthrough, and a passthrough for an array that is in descending oder is N - 1, so for a 5 element array we will do 4 passthrough, and for a 20 element array we will do 19 passthrough. And remember insertion and removal happens twice for each passthrough once respectively for insertion and removal. So we can conclude that for an array there are `N - 1` insertions and `N - 1` removals in a worst case scenario.
+
+So now we get (**N<sup>2</sup>** comparisons and shifts combined) + (**N - 1** removals) + (**N - 1** insertions) which will give us N<sup>2</sup> + 2N + 2 steps(remember your equations).
+
+As you already know one major rule of Big O is ignoring constants so we simplify this equation **N<sup>2</sup> + 2N + 2** to **O(N<sup>2</sup> + N)**.
+
+But there is another major rule of Big O notations:
+
+**Big O Notation only takes into account the highest order of N when we have multiple orders of N added together.**
+
+Thus if we have an algorithm that takes N<sup>4</sup> + N<sup>3</sup> + N<sup>2</sup> + N steps we only consider N<sup>4</sup> to be significant and we just call it O(N<sup>4</sup>). As N increases, N<sup>4</sup> becomes so much more significant than any other order of N that the smaller orders are considered trivial.
+
+Consider this suppose we have an array that have 100 elements when we calculate N<sup>4</sup> + N<sup>3</sup> + N<sup>2</sup> + N we get a total of 101,010,100. But we may as well round it up to  100,000,000, which can be achieved by calculation 100<sup>4</sup> or ignoring the lower oder values of N thus only calculating N<sup>4</sup>.
+
+So applying this concept to the insertion sort algorithm we can simplify O(N<sup>2</sup> + N) to **O(N<sup>2</sup>)**. So with this it emerges that in a worst case scenario insertion sort takes as long as a selection and bubble sort algorithms. They are all O(N<sup>2</sup>) when simplified.
