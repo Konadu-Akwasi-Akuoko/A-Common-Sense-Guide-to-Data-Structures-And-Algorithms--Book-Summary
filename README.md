@@ -19,6 +19,7 @@ This version here uses TypeScript. To go over to the Python version go [here](/P
 3. [Chapter 3](#3-chapter-3)
 4. [Speeding Up Your Code With Big O](#4-speeding-up-your-code-with-big-o)
 5. [Optimizing Code With or Without Big O](#5-optimizing-code-with-or-without-big-o)
+6. [Optimizing for Optimistic Scenarios](#6-optimizing-for-optimistic-scenarios)
 
 ---
 
