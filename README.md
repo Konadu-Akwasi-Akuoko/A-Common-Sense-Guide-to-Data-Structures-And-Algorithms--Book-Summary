@@ -480,11 +480,11 @@ In subsequent pass-through, we remove the values at the subsequent indexes just 
 
 ![Alt text](Assets/PNG/Chapter6/insertion_sort_2.png)
 
-If the value to the left of the gap is greater than the temporary variable, we shift that value to the right:
+If the **value to the left of the gap is greater than the temporary variable, we shift that value to the right**:
 
 ![Alt text](Assets/PNG/Chapter6/insertion_sort_3.png)
 
-As we shift values to the right, inherently the gap moves leftward. As soon as we encounter a value that is lower than the temporarily removed value, or we reach the left end of the array, this shifting phase is over.
+**As we shift values to the right, inherently the gap moves leftward. As soon as we encounter a value that is lower than the temporarily removed value, or we reach the left end of the array, this shifting phase is over.**
 
 - We then insert the temporarily removed value into the current gap:
 
@@ -603,3 +603,28 @@ Now we begin our fourth passthrough
 And after 22 steps our 5 element array is now fully sorted
 
 ![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action24.png)
+
+### Code Implementation: Insertion Sort
+
+Here is a TypeScript implementation of insertion sort algorithm:
+
+```TypeScript
+function insertionSort(array: number[]) {
+  for (let i = 1; i < array.length; i++) {
+    let tempValue = array[i];
+    let position = i - 1;
+
+    while (position >= 0) {
+      if (array[position] > tempValue) {
+        array[position + 1] = array[position];
+        position = position - 1;
+      } else {
+        break;
+      }
+    }
+    array[position + 1] = tempValue;
+  }
+  return array;
+}
+
+```
