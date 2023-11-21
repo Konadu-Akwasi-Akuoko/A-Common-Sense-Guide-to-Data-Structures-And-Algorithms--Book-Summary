@@ -611,7 +611,7 @@ Here is a TypeScript implementation of insertion sort algorithm:
 ```TypeScript
 function insertionSort(array: number[]) {
   for (let i = 1; i < array.length; i++) {
-    let tempValue = array[i];
+    const tempValue = array[i];
     let position = i - 1;
 
     while (position >= 0) {
@@ -626,5 +626,72 @@ function insertionSort(array: number[]) {
   }
   return array;
 }
-
 ```
+
+Let's try and understand this code step by step.
+
+Remember we start the loop at index 1 that runs through the entire array, and each round of this loop represents a passthrough.
+
+``` TypeScript
+for (let i = 1; i < array.length; i++) {
+```
+
+For each passthrough we save the value we are removing in a variable called `tempValue`.
+
+```TypeScript
+tempValue = array[i];
+```
+
+Now we create a variable called `position` which will start immediately to the left of the index of the `tempValue`. This `position` represent the index of the value we will compare against the `tempValue`.
+
+```TypeScript
+let position = i - 1;
+```
+
+As we move through the passthrough, this `position` will keep moving leftward as we compare each value to the `tempValue`.
+
+Then there is an inner loop which runs as long as `position` is greater than or equal to 0.
+
+```TypeScript
+while (position >= 0) {
+```
+
+We then check whether the value at `position` is greater than the `tempValue`.
+
+```TypeScrpt
+if (array[position] > tempValue) {
+```
+
+If it is then we shift that value at `position` to the right.
+
+```TypeScript
+array[position + 1] = array[position];
+```
+
+Now moving into the next round of the while loop we decrement `position` by 1.
+
+```TypeScript
+position = position - 1;
+```
+
+And if by any chance we encounter a value that is  greater than or equal to our `tempValue`, that means we must stop our passthrough, and it's time to move the `tempValue` into the gap.
+
+```TypeScript
+} else {
+  break;
+}
+```
+
+The final step of each passthrough is to move the `tempValue` into the gap  created. Note at this point, we have found the correct position for our tempValue in the array. However, due to the decrement in the last unsuccessful comparison `position = position - 1`, the `position` is now actually one index to the left of where `tempValue` should be. Therefore, we need to insert `tempValue` at `position + 1`.
+
+```TypeScript
+array[position + 1] = tempValue;
+```
+
+After all passthrough have completed we return the sorted array.
+
+```TypeScript
+return array;
+```
+
+### The Efficiency of Insertion Sort

@@ -3,7 +3,7 @@ function insertionSort(array: number[]) {
   // Loop over the array starting from the second element (index 1)
   for (let i = 1; i < array.length; i++) {
     // Store the current element in a temporary variable
-    let tempValue = array[i];
+    const tempValue = array[i];
     // Initialize the position for comparison as the index before the current element
     let position = i - 1;
 
