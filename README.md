@@ -493,3 +493,113 @@ As we shift values to the right, inherently the gap moves leftward. As soon as w
 - Steps 1 through 3 represent a single pass-through. We repeat these pass-troughs until the pass-through begins at the final index of the array. By then, the array will have been fully sorted.
 
 ### Insertion Sort in Action
+
+Let's  see how an insertion sort work by sorting this array `[4, 2, 7, 1, 3]`.
+
+We begin the first pass-through by inspecting the value at index `1`. This happens to contain the value `2`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action1.png)
+
+- **Step 1:** We temporarily remove the 2 and keep it inside a variable called `temp_value`. We represent this value by shifting it above the rest of the array
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action2.png)
+
+- **Step 2:** We compare the `4` to the `temp_value`, which is `2`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action3.png)
+
+- **Step 3:** Because `4` is greater than `2`, we shift the `4` to the right
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action4.png)
+
+There’s nothing left to shift, as the gap is now at the left end of our array.
+
+- **Step 4:** We insert the `temp_value` `(2)` into the gap at the left end of our array, completing our first pass-through
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action5.png)
+
+Now let's begin our second pass through at index `2` which have the value of `7`, remember we started our pass through at index 1.
+
+- **Step 5:** In our second pass-through, we temporarily remove the value at index `2`. We’ll store this in `temp_value`. In this case, the `temp_value` is `7`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action6.png)
+
+- **Step 6:** We compare the `4` which is to the left of our `temp_value` to our `temp_value` which is `7`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action7.png)
+
+The `4` is lower, so we won’t shift it, and since we reached a value that is less than the `temp_value`, this shifting phase is over.
+
+**NB: The shifting phase becomes over only when we encounter a value that is less than our `temp_value` or there is no items left in the array to compare our `temp_value` to**
+
+- **Step 7:** We insert the `temp_value` back into the gap, ending the second passthrough.
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action8.png)
+
+We now begin the third pass-through at index `3`
+
+- **Step 8:** We temporarily remove the `1` which have an index of `3`, and store it in `temp_value`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action9.png)
+
+- **Step 9:** We compare the 7 to the `temp_value`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action10.png)
+
+- **Step 10:** The 7 is greater than 1, so we shift the 7 to the right
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action11.png)
+
+- **Step 11:** We compare the 4 to the `temp_value`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action12.png)
+
+- **Step 12:** The 4 is greater than 1, so we shift it to the right as well
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action13.png)
+
+- **Step 13:** We now compare the 2 to the `temp_value`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action14.png)
+
+- **Step 14:** The 2 is greater than the `temp_value`, so we shift it to the right
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action15.png)
+
+- **Step 15:** The gap has reached the left end of the array and there are no items left to the left side of the array, so we insert the `temp_value` into the gap, concluding this pass-through
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action16.png)
+
+Now we begin our fourth passthrough
+
+- **Step 16:** At the start of the 4th passthrough we temporarily remove the value from index `4`, making it our temp_value. This is the value `3`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action17.png)
+
+- **Step 17:** We compare the 7 to the temp_value
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action18.png)
+
+- **Step 18:** The 7 is greater than the `temp_value`, so we shift the 7 to the right
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action19.png)
+
+- **Step 19:** We compare the 4 to the `temp_value`
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action20.png)
+
+- **Step 20:** The 4 is greater than the 3, so we shift the 4 to the right
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action21.png)
+
+- **Step 21:** We compare the 2 to the `temp_value`. The 2 is less than our `temp_value` which is 3, so our shifting phase is complete
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action22.png)
+
+- **Step 22:** We insert the `temp_value` back into the gap created by our shifting
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action23.png)
+
+And after 22 steps our 5 element array is now fully sorted
+
+![Alt text](Assets/PNG/Chapter6/insertion_sort_in_action24.png)
