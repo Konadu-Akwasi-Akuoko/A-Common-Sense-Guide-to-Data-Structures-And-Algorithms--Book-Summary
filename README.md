@@ -759,3 +759,49 @@ So based on all this information we can say that an insertion sort algorithm is 
 
 ### A practical example
 
+Let's say we have a program that calculates the intersection between 2 arrays, thus it takes in two arrays as arguments, and check to see values that appear in both arrays and return it. Here is how we would probably implement such an algorithm:
+
+```TypeScript
+function unoptimizedIntersection(firstArray: number[], secondArray: number[]) {
+  const result = [];
+  for (let i = 0; i < firstArray.length; i++) {
+    for (let j = 0; j < secondArray.length; j++) {
+      if (firstArray[i] === secondArray[j]) {
+        result.push(firstArray[i]);
+      }
+    }
+  }
+  return result;
+}
+```
+
+From the above code you will see that the time complexity for the above code is N<sup>2</sup>, why? For the given code we are first running a loop over the first array, and for every value we would reach in the first for loop we also run a second loop that checks(does a comparison) inside the second array if there are any values matching the value of the first loop. So thus if we provide 2 arrays that does not have any identical values and each of them have 5 elements, this code will make 25 comparisons and will still not find any value that is identical. Let's try and understand it a bit. We start the code by running a loop, and since there would be 5 elements in the `firstArray` the first loop will run 5 times, and for every single passthrough we will also run a second loop on the `secondArray` that will check if the value in our `firstArray` will match any value in our `secondArray`: `if (firstArray[i] === secondArray[j]) {`, and that will also run for 5 times because the `secondArray` is also a 5 element array, therefor `5 * 5` will be 25 comparisons made.
+
+And if by chance we find that the array contains matching values we will insert into the `results` array, and in a worst case scenario if all the values in both arrays are the same, that will take a time complexity of N, for the 5 element arrays(first and second array) we are talking about suppose they all the same element that means we will push into the `results` array 5 times. But as we know in Big O the higher oder of N is always taken into account over the lower oder of Ns so we can say that our code takes O(N<sup>2</sup>). Now that's for the worst case scenario when no values are matching, let's take a look at the best case scenario.
+
+Let's say we have two 4 element arrays thus: `[1, 2, 3, 4]` and `[1, 2, 3, 4]`, if we call the `unoptimizedIntersection` function on these arrays it will always take N<sup>2</sup> time complexity. But let's analyze it a little bit and see if there can be any improvements when we are working in a best case scenario.
+
+For the record we only want to see if a value appears in the `firstArray` and also appears in the `secondArray`. So let's say we are running the through the first passthrough of the first loop(so we are basically checking if there is `1` in the second array), we would immediately encounter that there is `1` in the second array, so we will push it into the `result` array: `result.push(firstArray[i]);`, and after pushing it the second loop will continue to run unless it runs out of array elements. So you see we are running into inefficiencies here, the moment we see that a value is in the `secondArray` we don't need to check for all the values remaining in the `secondArray`, because we know that that particular value in the first array has a matching value in the second array. So this means that the moment we see that there is a value in the second array we don't need to complete the passthrough.
+
+So now let's fix it:
+
+```TypeScript
+function optimizedIntersection(firstArray: number[], secondArray: number[]) {
+  const result = [];
+  for (let i = 0; i < firstArray.length; i++) {
+    for (let j = 0; j < secondArray.length; j++) {
+      if (firstArray[i] === secondArray[j]) {
+        result.push(firstArray[i]);
+        break;
+      }
+    }
+  }
+  return result;
+}
+```
+
+Now with the introduction of `break` the loop will cut short whenever the if statement finds a value that is a matching value, therefore saving us steps and time.
+
+Although it is still true that in the worst case scenario the code will still take N<sup>2</sup> steps. But in the best case scenario where the arrays have identical values the time is reduced to N. And in an average case we will get a time complexity of somewhere between N and N<sup>2</sup>. And this is a very great improvement over running this code in N<sup>2</sup> steps in all cases.
+
+### Wrap up
