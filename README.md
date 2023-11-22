@@ -728,3 +728,34 @@ Thus if we have an algorithm that takes N<sup>4</sup> + N<sup>3</sup> + N<sup>2<
 Consider this suppose we have an array that have 100 elements when we calculate N<sup>4</sup> + N<sup>3</sup> + N<sup>2</sup> + N we get a total of 101,010,100. But we may as well round it up to  100,000,000, which can be achieved by calculation 100<sup>4</sup> or ignoring the lower oder values of N thus only calculating N<sup>4</sup>.
 
 So applying this concept to the insertion sort algorithm we can simplify O(N<sup>2</sup> + N) to **O(N<sup>2</sup>)**. So with this it emerges that in a worst case scenario insertion sort takes as long as a selection and bubble sort algorithms. They are all O(N<sup>2</sup>) when simplified.
+
+In previous chapters we said that the actual time complexity for a selection sort algorithm is N<sup>2</sup> / 2 (but becuase we ignore constants in Big O we ignored the `/ 2`) steps and it's faster than a bubble sort algorithm which have N<sup>2</sup> steps, and also based on this we can say that selection sort is faster than insertion sort algorithm, right? Not really.
+
+### Average Case
+
+We've been talking about the worst case scenario for a very long time, and yes in a wort case scenario selection sort is faster than an insertion sort and bubble sort algorithms. But we must also talk about the average case also. Because the case that happens frequently are average cases. In the real world average cases happens more often than worst and best case scenarios.
+
+Let's examine insertion sort for all cases and see how it compares to insertion sort on the same cases.
+
+We already know that in a worst case scenario an insertion sort algorithm takes N<sup>2</sup> steps.
+
+And in a best case scenario-an array in ascending oder, we only make one comparison per passthrough since every value to the left of the `temporalValue` will be smaller than the temporal value, and we will get to end each passthrough early as we make those comparisons. So basically we will have N - 1 steps for the best case for an insertion sort algorithm but if we ignore the constants we will be left with N steps for a the best case scenario.
+
+And in a random case scenario we will compare and shift some of the data but not all, so we can assume in an average case scenario we will get N<sup>2</sup> / 2 steps.
+
+Let's see an example, let's say we have this array in a best case scenario for this 4 element `[1, 2, 3, 4]` when we use insertion sort to sort this array we will end up with 3 comparisons and 0 shifts, thus 3 steps (equivalent to `N`).
+
+And in an average case scenario with `[1, 3, 4, 2]` array, we will make 4 comparisons and 2 shifts for a total of 6 steps, which will give us an approximately N<sup>2</sup> / 2 steps.
+
+And we already know that in a worst case scenario an insertion sort algorithm takes N<sup>2</sup> steps. Based on this information we can say that an insertion sort algorithm varies in the number of steps or it's time complexity based on the case. For it takes N steps in the best case scenario, N<sup>2</sup> / 2 in an average case scenario, and N<sup>2</sup> in the worst case scenario. And now let's compare this with a selection sort algorithm that takes N<sup>2</sup> / 2 steps (we are not ignoring the constants) in all cases, because it doesn’t have any mechanism for ending a passthrough early at any point. Each passthrough compares every value to the right of the chosen
+index no matter what the value. Check out the table below:
+
+|**Type of Algorithm**    |**Best case**    |**Average case**     |**Worst Case**     |
+|-------------------------|-----------------|---------------------|-------------------|
+|Selection sort           |N<sup>2</sup> / 2|N<sup>2</sup> / 2    |N<sup>2</sup> / 2  |
+|Insertion sort           |N                |N<sup>2</sup> / 2    |N<sup>2</sup>      |
+
+So based on all this information we can say that an insertion sort algorithm is the best for a best case scenario, and a selection sort algorithm is best for a worst case scenario, and lastly we can either use a selection sort or insertion sort algorithm for the average case sceanrio.
+
+### A practical example
+
