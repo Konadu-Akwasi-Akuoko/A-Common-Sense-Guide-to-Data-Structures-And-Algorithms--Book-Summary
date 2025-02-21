@@ -26,4 +26,37 @@ nums2.length == n
 1 <= m + n <= 2000
 -106 <= nums1[i], nums2[i] <= 106
  */
-public;
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
+  const mergedArray: number[] = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < nums1.length && j < nums2.length) {
+    if (nums1[i] <= nums2[j]) {
+      mergedArray.push(nums1[i]);
+      i++;
+    } else {
+      mergedArray.push(nums2[j]);
+      j++;
+    }
+  }
+
+  while (i < nums1.length) {
+    mergedArray.push(nums1[i]);
+    i++;
+  }
+
+  while (j < nums2.length) {
+    mergedArray.push(nums2[j]);
+    j++;
+  }
+
+  //after merging find the median of the array
+  if (mergedArray.length % 2 === 0) {
+    const midPoint = mergedArray.length / 2;
+    const medianValues = mergedArray[midPoint - 1] + mergedArray[midPoint];
+    return medianValues / 2;
+  } else {
+    return mergedArray[Math.floor(mergedArray.length / 2)];
+  }
+}
