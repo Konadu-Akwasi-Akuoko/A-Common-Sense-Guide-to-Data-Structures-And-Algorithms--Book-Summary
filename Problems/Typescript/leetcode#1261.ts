@@ -62,3 +62,57 @@ The total number of nodes is between [1, 104]
 Total calls of find() is between [1, 104]
 0 <= target <= 106
  */
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class FindElements {
+  private root: TreeNode | null;
+  private values: Set<number>;
+
+  constructor(root: TreeNode | null) {
+    this.root = root;
+    this.values = new Set<number>();
+
+    // Recover the tree and store all values
+    if (root) {
+      this.recoverTree(root, 0);
+    }
+  }
+
+  private recoverTree(node: TreeNode, value: number): void {
+    // Update current node's value
+    node.val = value;
+    this.values.add(value);
+
+    // Recursively recover left child (2 * x + 1)
+    if (node.left) {
+      this.recoverTree(node.left, 2 * value + 1);
+    }
+
+    // Recursively recover right child (2 * x + 2)
+    if (node.right) {
+      this.recoverTree(node.right, 2 * value + 2);
+    }
+  }
+
+  find(target: number): boolean {
+    return this.values.has(target);
+  }
+}
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
+ */
